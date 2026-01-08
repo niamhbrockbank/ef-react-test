@@ -1,5 +1,10 @@
+import PageSummary from "../PageSummary/PageSummary";
 import * as styles from "./Home.css";
 
 export default function Home() {
-  return <h1 className={styles.home}>hi</h1>;
+  return (
+    <h1 className={styles.home}>
+      <PageSummary />
+    </h1>
+  );
 }

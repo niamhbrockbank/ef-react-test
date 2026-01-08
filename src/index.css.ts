@@ -1,27 +1,37 @@
 import { createGlobalTheme, globalStyle } from "@vanilla-extract/css";
+export const vars = createGlobalTheme(':root', {
+  colors: {
+    orange: '#cd5f4a',
+    white: '#ffffff',
+    titleGrey: '#474646',
+    textGrey: '#7d7c7b',
+    decorationGrey: '#efefef',
+    background: '#f7f5f2',
+    green: '#3e7f6d'  
+  }
+})
 
 globalStyle(':root', {
-  vars: {
-    '--white': '#ffffff',
-    '--title-grey': '#474646',
-    '--text-grey': '#7d7c7b',
-    '--decoration-grey': '#efefef',
-    '--background': '#f7f5f2',
-    '--green': '#3e7f6d'  
-  },
-
-  margin: 0,
+  margin: '32px 56px',
   fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif',
   WebkitFontSmoothing: 'antialiased',
   MozOsxFontSmoothing: 'grayscale',
   fontSynthesis: 'none',
   textRendering: 'optimizeLegibility',
+  backgroundColor: vars.colors.background
 })
 
-export const vars = createGlobalTheme(':root', {
-  colors: {
-    orange: '#cd5f4a'
-  }
+globalStyle('h1', {
+  color: vars.colors.titleGrey,
+  fontSize: '1.2em'
 })
+
+globalStyle('p', {
+  color: vars.colors.textGrey,
+  fontWeight: 500,
+  fontSize: '0.6em'
+})
+
+
 
 
