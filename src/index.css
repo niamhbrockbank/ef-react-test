@@ -5,6 +5,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --orange: '#2596be';
+  --off-white: '#2596be';
+  --title-grey: '#2596be';
+  --text-grey: '#2596be';
+  --decoration-grey: '#ededed';
+  --green: '#2596be'
 }
 
 code {
