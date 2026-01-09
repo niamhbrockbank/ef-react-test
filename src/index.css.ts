@@ -26,6 +26,11 @@ globalStyle('h1', {
   fontSize: '1.2em'
 })
 
+globalStyle('h2', {
+  color: vars.colors.titleGrey,
+  fontSize: '1.0em'
+})
+
 globalStyle('p', {
   color: vars.colors.textGrey,
   fontWeight: 500,
