@@ -34,7 +34,7 @@ export default function Programs() {
       <p className={styles.sectionSummary}>Showing 20 of 23 courses</p>
       <div className={styles.programs}>
         {programs.map((p) => (
-          <Program program={p} />
+          <Program program={p} key={p.id} />
         ))}
       </div>
     </div>
