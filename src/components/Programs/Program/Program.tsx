@@ -1,5 +1,6 @@
 import { Program as ProgramType } from "src/types";
 import * as styles from "./Program.css";
+import { formatTag } from "src/utils/formatTag";
 
 interface Props {
   program: ProgramType;
@@ -14,8 +15,12 @@ export default function Program({ program }: Props) {
         <p>{bestseller ? "amazing" : "rubbish"}</p>
       </div>
       <div className={styles.body}>
-        <p>{topic}</p>
-        <p>{learningFormats[0]}</p>
+        <p>{formatTag(topic)}</p>
+        <div className={styles.learningFormats}>
+          {learningFormats.map((format) => (
+            <p>{formatTag(format)}</p>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -13,11 +13,18 @@ export const titleSection = style({
     paddingBottom: "4px",
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    gap: "16px"
 })
 
 export const body = style({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between"
+})
+
+export const learningFormats = style({
+    display: "flex",
+    flexDirection: "row",
+    gap: "16px"
 })
