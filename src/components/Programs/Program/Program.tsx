@@ -17,8 +17,13 @@ export default function Program({ program }: Props) {
       <div className={styles.body}>
         <p>{formatTag(topic)}</p>
         <div className={styles.learningFormats}>
-          {learningFormats.map((format) => (
-            <p>{formatTag(format)}</p>
+          {learningFormats.map((format, i) => (
+            <>
+              <p key={format}>{formatTag(format)}</p>
+              {i + 1 !== learningFormats.length && (
+                <div className={styles.separator} />
+              )}
+            </>
           ))}
         </div>
       </div>

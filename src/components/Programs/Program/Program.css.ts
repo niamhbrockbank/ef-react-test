@@ -26,5 +26,14 @@ export const body = style({
 export const learningFormats = style({
     display: "flex",
     flexDirection: "row",
-    gap: "16px"
+    gap: "16px",
+    alignItems: "center"
+})
+
+export const separator = style({
+    borderRadius: "100%",
+    border: `1px solid ${vars.colors.textGrey}`,
+    height: "2px",
+    width: "2px",
+    background: vars.colors.textGrey
 })
