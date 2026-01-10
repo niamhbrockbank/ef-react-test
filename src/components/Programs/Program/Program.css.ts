@@ -14,7 +14,27 @@ export const titleSection = style({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    gap: "16px"
+})
+
+export const title = style({
+    width: "60%"
+})
+
+export const star = style({
+    fill: vars.colors.orange,
+    width: "16px",
+    height: "16px",
+    marginBottom: "2px"
+})
+
+export const bestSeller = style({
+    display: "flex",
+    alignItems: "center",
+    color: vars.colors.orange,
+    fontWeight: 500,
+    fontSize: '0.6em',
+    gap: "8px",
+    width: "90px",
 })
 
 export const body = style({
