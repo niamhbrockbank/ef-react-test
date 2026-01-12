@@ -1,5 +1,6 @@
 import Program from "./Program/Program";
 import * as styles from "./Programs.css";
+import SortBy from "./SortBy/SortBy";
 
 const programs = [
   {
@@ -31,7 +32,10 @@ const programs = [
 export default function Programs() {
   return (
     <div>
-      <p className={styles.sectionSummary}>Showing 20 of 23 courses</p>
+      <div className={styles.sectionSummary}>
+        <p className={styles.showingNow}>Showing 20 of 23 courses</p>
+        <SortBy />
+      </div>
       <div className={styles.programs}>
         {programs.map((p) => (
           <Program program={p} key={p.id} />

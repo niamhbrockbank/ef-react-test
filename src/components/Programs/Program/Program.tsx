@@ -1,7 +1,7 @@
 import { Program as ProgramType } from "src/types";
 import * as styles from "./Program.css";
 import { formatTag } from "src/utils/formatTag";
-import Star from "./star";
+import Star from "./Star";
 
 interface Props {
   program: ProgramType;
