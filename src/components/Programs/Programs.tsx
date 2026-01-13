@@ -28,7 +28,9 @@ export default function Programs() {
   return (
     <div>
       <div className={styles.sectionSummary}>
-        <p className={styles.showingNow}>Showing 20 of 23 courses</p>
+        <p className={styles.showingNow}>
+          Showing {programs.length} of {programs.length} courses
+        </p>
         <SortBy currentSort={currentSort} setCurrentSort={setCurrentSort} />
       </div>
       <div className={styles.programs}>
