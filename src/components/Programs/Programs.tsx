@@ -1,6 +1,8 @@
+import { useMemo, useState } from "react";
 import Program from "./Program/Program";
 import * as styles from "./Programs.css";
 import SortBy from "./SortBy/SortBy";
+import sortPrograms from "src/utils/sortPrograms";
 
 const programs = [
   {
@@ -29,15 +31,23 @@ const programs = [
   },
 ];
 
+export type sortOptions = "alphabetical" | "soonest-first" | "bestselling";
+
 export default function Programs() {
+  const [currentSort, setCurrentSort] = useState<sortOptions>("alphabetical");
+
+  const sortedPrograms = useMemo(() => {
+    return sortPrograms(currentSort, programs);
+  }, [currentSort]);
+
   return (
     <div>
       <div className={styles.sectionSummary}>
         <p className={styles.showingNow}>Showing 20 of 23 courses</p>
-        <SortBy />
+        <SortBy currentSort={currentSort} setCurrentSort={setCurrentSort} />
       </div>
       <div className={styles.programs}>
-        {programs.map((p) => (
+        {sortedPrograms.map((p) => (
           <Program program={p} key={p.id} />
         ))}
       </div>
