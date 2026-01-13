@@ -1,44 +1,29 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Program from "./Program/Program";
+import { Program as ProgramType } from "../../types";
 import * as styles from "./Programs.css";
 import SortBy from "./SortBy/SortBy";
 import sortPrograms from "src/utils/sortPrograms";
-
-const programs = [
-  {
-    id: 1,
-    title: "Agile Innovation for Business Growth",
-    topic: "change-and-culture",
-    learningFormats: ["virtual", "residential", "blended", "self-study"],
-    bestseller: false,
-    startDate: "2023-05-05T00:00:00+0000",
-  },
-  {
-    id: 2,
-    title: "Developing an Entrepreurial Mindset: Speed, Creativity and Growth",
-    topic: "change-and-culture",
-    learningFormats: ["self-study"],
-    bestseller: false,
-    startDate: "2023-05-08T00:00:00+0000",
-  },
-  {
-    id: 3,
-    title: "Leading Across Cultures",
-    topic: "change-and-culture",
-    learningFormats: ["virtual", "residential", "blended"],
-    bestseller: true,
-    startDate: "2023-07-08T00:00:00+0000",
-  },
-];
 
 export type sortOptions = "alphabetical" | "soonest-first" | "bestselling";
 
 export default function Programs() {
   const [currentSort, setCurrentSort] = useState<sortOptions>("alphabetical");
+  const [programs, setPrograms] = useState<ProgramType[]>([]);
+
+  useEffect(() => {
+    const fetchPrograms = async () => {
+      const response = await fetch("http://localhost:3010/programs");
+      const jsonBody: ProgramType[] = await response.json();
+      setPrograms(jsonBody);
+    };
+
+    fetchPrograms();
+  }, []);
 
   const sortedPrograms = useMemo(() => {
     return sortPrograms(currentSort, programs);
-  }, [currentSort]);
+  }, [currentSort, programs]);
 
   return (
     <div>
