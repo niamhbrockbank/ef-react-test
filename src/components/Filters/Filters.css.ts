@@ -2,9 +2,14 @@ import { style } from "@vanilla-extract/css";
 import { vars } from "src/index.css";
 
 export const filters = style({
-    width: "160px",
     display: "flex",
-    flexDirection: "column"
+    flexDirection: "column",
+
+    '@media': {
+        'screen and (min-width: 768px)': {
+      width: "160px",
+    }
+}
 })
 
 export const sectionSummary = style({
