@@ -14,5 +14,6 @@ export const showingNow = style({
 export const programs = style({
     display: "flex",
     flexDirection: "column",
-    gap: "20px"
+    gap: "20px",
+    minWidth: "400px"
 })

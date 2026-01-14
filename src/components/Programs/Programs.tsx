@@ -7,9 +7,10 @@ import sortPrograms from "src/utils/sortPrograms";
 
 interface Props {
   programs: ProgramType[];
+  programCount: number;
 }
 
-export default function Programs({ programs }: Props) {
+export default function Programs({ programs, programCount }: Props) {
   const [currentSort, setCurrentSort] = useState<sortOptions>("alphabetical");
 
   const sortedPrograms = useMemo(() => {
@@ -20,7 +21,7 @@ export default function Programs({ programs }: Props) {
     <div>
       <div className={styles.sectionSummary}>
         <p className={styles.showingNow}>
-          Showing {sortedPrograms.length} of {programs.length} courses
+          Showing {sortedPrograms.length} of {programCount} courses
         </p>
         <SortBy currentSort={currentSort} setCurrentSort={setCurrentSort} />
       </div>

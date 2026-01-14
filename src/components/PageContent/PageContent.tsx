@@ -76,7 +76,7 @@ export default function PageContent() {
         topicFilterStatus={topicFilterStatus}
         formatFilterStatus={formatFilterStatus}
       />
-      <Programs programs={filteredPrograms} />
+      <Programs programs={filteredPrograms} programCount={programs.length} />
     </div>
   );
 }
