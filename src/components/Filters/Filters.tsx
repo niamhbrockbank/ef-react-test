@@ -1,42 +1,34 @@
 import { FilterGroup } from "src/types";
 import Filter from "./Filter/Filter";
 import * as styles from "./Filters.css";
-import { useState } from "react";
 
-const initialFilterStatus: FilterGroup = {
-  "business-strategy": false,
-  "change-and-culture": false,
-  "innovation-and-digital-information": false,
-  "personal-leadership-and-team-development": false,
-};
+interface Props {
+  handleClearAll: () => void;
+  handleTopicChange: (id: string) => void;
+  handleFormatChange: (id: string) => void;
+  topicFilterStatus: FilterGroup;
+  formatFilterStatus: FilterGroup;
+}
 
-export default function Filters() {
-  const [filterStatus, setFilterStatus] = useState(initialFilterStatus);
-
-  function handleChange(id: string) {
-    setFilterStatus((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
-  }
-
-  function handleClearAll() {
-    setFilterStatus((prev) => {
-      const filters = Object.keys(prev);
-      const allFalse = filters.map((f) => [f, false]);
-      const newStatus = Object.fromEntries(allFalse) as FilterGroup;
-
-      return newStatus;
-    });
-  }
-
+export default function Filters({
+  handleClearAll,
+  handleTopicChange,
+  handleFormatChange,
+  topicFilterStatus,
+  formatFilterStatus,
+}: Props) {
   return (
     <div className={styles.filters}>
       <p className={styles.sectionSummary}>Filter</p>
       <Filter
         title="Topics"
-        options={filterStatus}
-        handleChange={handleChange}
+        options={topicFilterStatus}
+        handleChange={handleTopicChange}
+      />
+      <Filter
+        title="Learning Formats"
+        options={formatFilterStatus}
+        handleChange={handleFormatChange}
       />
       <button className={styles.clearButton} onClick={() => handleClearAll()}>
         x Clear filters
