@@ -6,3 +6,5 @@ export interface Program {
     bestseller: boolean,
     startDate: string,
 }
+
+export type FilterGroup = Record<string, boolean>
