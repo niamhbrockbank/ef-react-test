@@ -1,9 +1,10 @@
-import { FilterGroup } from "src/types";
+import { FilterGroup, Program } from "src/types";
 import Filters from "../Filters/Filters";
 import Programs from "../Programs/Programs";
 import * as styles from "./PageContent.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import clearAllFilters from "src/utils/clearAllFilters";
+import { checkFilters } from "src/utils/checkFilters";
 
 const initialTopicFilterStatus: FilterGroup = {
   "business-strategy": false,
@@ -26,6 +27,17 @@ export default function PageContent() {
   const [formatFilterStatus, setFormatFilterStatus] = useState(
     initialFormatFilterStatus
   );
+  const [programs, setPrograms] = useState<Program[]>([]);
+
+  useEffect(() => {
+    const fetchPrograms = async () => {
+      const response = await fetch("http://localhost:3010/programs");
+      const jsonBody: Program[] = await response.json();
+      setPrograms(jsonBody);
+    };
+
+    fetchPrograms();
+  }, []);
 
   function handleTopicChange(id: string) {
     setTopicFilterStatus((prev) => ({
@@ -51,6 +63,10 @@ export default function PageContent() {
     });
   }
 
+  const filteredPrograms = programs.filter((p) =>
+    checkFilters(p, formatFilterStatus, topicFilterStatus)
+  );
+
   return (
     <div className={styles.pageContent}>
       <Filters
@@ -60,7 +76,7 @@ export default function PageContent() {
         topicFilterStatus={topicFilterStatus}
         formatFilterStatus={formatFilterStatus}
       />
-      <Programs />
+      <Programs programs={filteredPrograms} />
     </div>
   );
 }
