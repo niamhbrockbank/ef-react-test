@@ -19,7 +19,7 @@ export default function Filter({ title, options, handleChange }: Props) {
         {Object.entries(options).map((option) => {
           const [id, checked] = option;
           return (
-            <div className={styles.filterOption}>
+            <div className={styles.filterOption} key={id}>
               <input
                 type="checkbox"
                 id={id}
