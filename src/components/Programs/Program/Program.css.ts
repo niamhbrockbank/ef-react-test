@@ -40,7 +40,12 @@ export const bestSeller = style({
 export const body = style({
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+})
+
+export const topics = style({
+    color: vars.colors.titleGrey,
+    fontWeight: "600"
 })
 
 export const learningFormats = style({
@@ -49,6 +54,8 @@ export const learningFormats = style({
     gap: "16px",
     alignItems: "center"
 })
+
+export const learningFormat = style([learningFormats])
 
 export const separator = style({
     borderRadius: "100%",

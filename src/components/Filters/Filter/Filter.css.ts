@@ -4,7 +4,7 @@ import { vars } from "src/index.css"
 export const filter = style({
     display: "flex",
     flexDirection: "column",
-    borderBottom: `1px solid ${vars.colors.textGrey}`,
+    borderBottom: `2px solid ${vars.colors.decorationOnBackgroundGrey}`,
     paddingBottom: "12px",
     marginBottom: "4px"
 })

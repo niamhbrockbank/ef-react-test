@@ -20,10 +20,10 @@ export default function Program({ program }: Props) {
         )}
       </div>
       <div className={styles.body}>
-        <p>{formatTag(topic)}</p>
+        <p className={styles.topics}>{formatTag(topic)}</p>
         <div className={styles.learningFormats}>
           {learningFormats.map((format, i) => (
-            <div key={format} className={styles.learningFormats}>
+            <div key={format} className={styles.learningFormat}>
               <p>{formatTag(format)}</p>
               {i + 1 !== learningFormats.length && (
                 <div className={styles.separator} />

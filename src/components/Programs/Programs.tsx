@@ -29,7 +29,7 @@ export default function Programs() {
     <div>
       <div className={styles.sectionSummary}>
         <p className={styles.showingNow}>
-          Showing {programs.length} of {programs.length} courses
+          Showing {sortedPrograms.length} of {programs.length} courses
         </p>
         <SortBy currentSort={currentSort} setCurrentSort={setCurrentSort} />
       </div>
