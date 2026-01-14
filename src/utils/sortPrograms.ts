@@ -1,4 +1,4 @@
-import { sortOptions } from "src/components/Programs/Programs";
+import { sortOptions } from "../types";
 import { Program } from "src/types";
 
 export default function sortPrograms(sortType : sortOptions, programs : Program[]): Program[]{

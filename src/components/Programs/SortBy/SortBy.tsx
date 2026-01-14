@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { sortOptions } from "../Programs";
+import { sortOptions } from "../../../types";
 import DownChevron from "./DownChevron";
 import * as styles from "./SortBy.css";
 
@@ -33,7 +33,15 @@ export default function SortBy({ currentSort, setCurrentSort }: Props) {
       {showDropdown && (
         <div className={styles.sortByDropdown}>
           {dropdownOptions.map((option) => (
-            <option key={option.id} className={styles.sortByDropdownOption[currentSort === option.id ? "selected" : "unselected"]} onClick={() => setCurrentSort(option.id)}>
+            <option
+              key={option.id}
+              className={
+                styles.sortByDropdownOption[
+                  currentSort === option.id ? "selected" : "unselected"
+                ]
+              }
+              onClick={() => setCurrentSort(option.id)}
+            >
               {option.label}
             </option>
           ))}

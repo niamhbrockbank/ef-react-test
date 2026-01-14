@@ -8,3 +8,5 @@ export interface Program {
 }
 
 export type FilterGroup = Record<string, boolean>
+
+export type sortOptions = "alphabetical" | "soonest-first" | "bestselling";
